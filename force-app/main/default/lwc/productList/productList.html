@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_small" style="margin-right:1%;">
+            <div class="slds-box">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-input type="search" name="search" label="Search" placeholder="Enter Product Name" variant="label-inline" onchange={handleSearch}></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="4">
+                        <lightning-button variant="brand" label="Submit Order" title="Submit Order" onclick={handleSubmit} class="slds-m-left_x-small"></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="4">
+                        <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </div>
+        <lightning-layout multiple-rows>
+            <template for:each={products} for:item="product">
+                <lightning-layout-item padding="around-small" size="4" key={product.id}>
+                    <c-product-item-tile key={product.id} product={product} onqtyupdate={handleQtyUpdate}></c-product-item-tile>
+                </lightning-layout-item>
+            </template>
+       </lightning-layout>
+    </lightning-card>
+</template>

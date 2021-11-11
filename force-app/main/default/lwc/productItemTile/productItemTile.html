@@ -1,0 +1,18 @@
+<template>
+    <div class="content">
+        <div class="image">
+            <img 
+                src={product.picture}
+                alt="Product Picture"
+                class="product slds-align_absolute-center"
+            />
+        </div>
+        <div class="center">
+            <p class="title">{product.name}</p> 
+            <p>Price: {product.price}</p>
+            <p>
+                <lightning-input type="number" name="quantity" label="Quantity Needed:" onchange={handleQuantityChange} placeholder="Enter Quantity"></lightning-input>
+            </p>
+        </div>
+    </div>
+</template>
